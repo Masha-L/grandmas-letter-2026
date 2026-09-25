@@ -162,6 +162,7 @@ figcaption {
 
 .entry figure,
 .photo-pair figure,
+.photo-single figure,
 .photo-gallery figure,
 .photo-stack {
   margin: 0;
@@ -185,6 +186,11 @@ figcaption {
 
 .photo-pair img {
   aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.photo-single img {
+  aspect-ratio: 5 / 4;
   object-fit: cover;
 }
 
