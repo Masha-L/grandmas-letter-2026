@@ -162,6 +162,7 @@ figcaption {
 
 .entry figure,
 .photo-pair figure,
+.photo-gallery figure,
 .photo-stack {
   margin: 0;
 }
@@ -183,6 +184,18 @@ figcaption {
 }
 
 .photo-pair img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.photo-gallery img {
   aspect-ratio: 4 / 5;
   object-fit: cover;
 }
@@ -264,6 +277,7 @@ figcaption {
   }
 
   .photo-pair,
+  .photo-gallery,
   .photo-stack {
     grid-template-columns: 1fr;
   }
