@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Редактор письма</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Manrope:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Grandmas letter</p>
+        <h1>Редактор</h1>
+      </div>
+      <div class="actions">
+        <button id="reload" type="button">Reload</button>
+        <button id="publish" type="button" class="primary">Publish</button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <aside class="settings" aria-label="Настройки публикации">
+        <h2>Backend</h2>
+        <label>
+          Worker URL
+          <input id="api-url" type="url" placeholder="https://grandmas-letter-admin.example.workers.dev" />
+        </label>
+        <label>
+          Admin token
+          <input id="admin-token" type="password" autocomplete="current-password" />
+        </label>
+        <button id="save-settings" type="button">Save settings</button>
+        <p class="hint">
+          Эти значения хранятся только в этом браузере. Токен отправляется только в Worker.
+        </p>
+        <p id="status" class="status">Loading...</p>
+      </aside>
+
+      <section class="editor" aria-label="Редактируемое письмо">
+        <div class="block hero-block" data-section="hero">
+          <p class="label">Hero</p>
+          <div class="field kicker" contenteditable="true" data-path="hero.kicker"></div>
+          <div class="field title" contenteditable="true" data-path="hero.title"></div>
+          <div class="field lead" contenteditable="true" data-path="hero.lead"></div>
+          <div class="image-fields" data-path="hero.photo"></div>
+        </div>
+
+        <div id="entries"></div>
+        <button id="add-block" type="button">Add block</button>
+
+        <div class="block" data-section="questions">
+          <p class="label">Final question</p>
+          <div class="field title small" contenteditable="true" data-path="questions.title"></div>
+          <div class="field body" contenteditable="true" data-path="questions.body"></div>
+        </div>
+      </section>
+    </main>
+
+    <template id="entry-template">
+      <article class="block entry-card">
+        <div class="block-head">
+          <p class="label entry-index"></p>
+          <select class="kind">
+            <option value="entry">Photo/text block</option>
+            <option value="plans">Plans block</option>
+          </select>
+        </div>
+        <div class="field date" contenteditable="true" data-field="date"></div>
+        <div class="field title small" contenteditable="true" data-field="title"></div>
+        <div class="field body" contenteditable="true" data-field="body"></div>
+        <div class="row">
+          <label>
+            Layout
+            <select class="layout">
+              <option value="standard">Standard</option>
+              <option value="wide">Wide</option>
+            </select>
+          </label>
+          <label>
+            Media
+          <select class="media-type">
+              <option value="">None</option>
+              <option value="figure">One photo</option>
+              <option value="single">Wide photo</option>
+              <option value="pair">Two photos</option>
+              <option value="gallery">Gallery</option>
+          </select>
+        </label>
+      </div>
+        <div class="row command-row">
+          <button class="add-image" type="button">Add image</button>
+          <button class="delete-block" type="button">Delete block</button>
+        </div>
+        <div class="images"></div>
+      </article>
+    </template>
+
+    <script src="admin.js" defer></script>
+  </body>
+</html>

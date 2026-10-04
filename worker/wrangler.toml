@@ -1,0 +1,10 @@
+name = "grandmas-letter-admin"
+main = "src/index.js"
+compatibility_date = "2026-10-04"
+
+[vars]
+GITHUB_OWNER = "Masha-L"
+GITHUB_REPO = "grandmas-letter-2026"
+GITHUB_BRANCH = "main"
+LETTER_PATH = "letter.json"
+ALLOWED_ORIGINS = "https://masha-l.github.io"

@@ -35,6 +35,13 @@ img {
   margin: 0 auto;
 }
 
+.loading {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
 .hero {
   min-height: 92vh;
   display: grid;
